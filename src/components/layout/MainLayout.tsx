@@ -20,10 +20,10 @@ const MainLayout: React.FC = () => {
         >
             <Sidebar />
             <Layout>
-                <Content style={{ margin: 30 }}  >
+                <Content className="md:m-8">
                     <DashboardHeader />
                     <div
-                        className="p-0 min-h-[50vh] w-full bg-[#F9F0EC] h-[calc(100vh-133px)] rounded-md overflow-y-scroll"
+                        className=" !rounded-xl min-h-[50vh] w-full bg-[#F9F0EC] p-6 h-[calc(100vh-133px)] overflow-y-scroll"
                         style={{ borderRadius: borderRadiusLG }}
                     >
                         <Outlet />

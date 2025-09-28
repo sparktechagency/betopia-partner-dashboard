@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Button, Typography, Card, message } from 'antd';
-import { Trash2 } from 'lucide-react';
+import { Mail, Phone, Trash2 } from 'lucide-react';
 import { supportData, SupportTicket } from '../../../demo-data/support-data';
 import SupportModel from './SupportModel';
 
@@ -106,15 +106,67 @@ const SupportInboxTable: React.FC = () => {
     ];
 
     return (
-        <div className="p-12">
+        <div >
             {/* Header */}
-            <div className="mb-6">
-                <div className="mb-4">
-                    <Title level={3} className="!m-0 text-gray-800 inline-block border-b-[1px] border-[#f79d77] pb-2">
-                        Support <span className="text-orange-500">Inbox</span>
+            <div className="mb-12">
+                <div className="mb-6 border-b-[1px] border-primary pb-4" style={{ width: '124px' }}>
+                    <Title level={4} className="!mb-0 !text-gray-800  !font-bold">
+                        Contact Us 
                     </Title>
                 </div>
+
+
+                {/* Main Heading */}
+                <h1 className="text-xl lg:text-2xl font-bold text-gray-700 mb-6 leading-tight">
+                    WE <span className="text-primary font-bold">UNDERSTAND</span>, WE <span className="text-primary font-bold">SUPPORT</span>, WE <span className="text-primary font-bold">DELIVER</span>
+                </h1>
+
+                <p className="text-gray-600 text-sm font-semibold">
+                    Choose your preferred channel to reach us.
+                </p>
             </div>
+
+            {/* Contact Methods */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mb-12 mx-auto">
+                {/* Email Section */}
+                <div className="flex items-center bg-[#FBF6F3] rounded-md px-6 py-4 gap-4">
+                    <div className="flex-shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center">
+                            <Mail className="w-7 h-7 text-[#2D2D2D]" strokeWidth={2} />
+                        </div>
+                    </div>
+                    <div>
+                        <p className="text-xs text-[#2D2D2D] mb-1">Mail us at</p>
+                        <a
+                            href="mailto:support@betopialimited.com"
+                            className="text-base font-semibold text-[#2D2D2D] hover:text-orange-500 transition-colors"
+                            style={{ fontFamily: 'inherit' }}
+                        >
+                            support@betopialimited.com
+                        </a>
+                    </div>
+                </div>
+
+                {/* Phone Section */}
+                <div className="flex items-center bg-[#FBF6F3] rounded-md px-6 py-4 gap-4">
+                    <div className="flex-shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center">
+                            <Phone className="w-7 h-7 text-[#2D2D2D]" strokeWidth={2} />
+                        </div>
+                    </div>
+                    <div>
+                        <p className="text-xs text-[#2D2D2D] mb-1">Call Us at</p>
+                        <a
+                            href="tel:+8801332840871"
+                            className="text-base font-semibold text-[#2D2D2D] hover:text-orange-500 transition-colors"
+                            style={{ fontFamily: 'inherit' }}
+                        >
+                            +88 01332840871
+                        </a>
+                    </div>
+                </div>
+            </div>
+
 
             {/* Main Content */}
             <Card className="shadow-sm rounded-t-none">

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Modal, Button, Typography, message } from 'antd';
+import { Modal, Button, Typography, message, Input } from 'antd';
 import { X, Trash2 } from 'lucide-react';
 import JoditEditor from 'jodit-react';
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 interface SupportMessageModalProps {
   visible?: boolean;
@@ -11,12 +11,12 @@ interface SupportMessageModalProps {
   setIsVisible?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SupportMessageModal: React.FC<SupportMessageModalProps> = ({ 
-  onClose = () => {},
+const SupportMessageModal: React.FC<SupportMessageModalProps> = ({
+  onClose = () => { },
   isVisible = false,
-  setIsVisible = () => {}
+  setIsVisible = () => { }
 }) => {
- 
+
   const [replyContent, setReplyContent] = useState('');
   const editorRef = useRef<any>(null);
 
@@ -39,13 +39,14 @@ const SupportMessageModal: React.FC<SupportMessageModalProps> = ({
 
   return (
     <>
+
       {/* Demo Button to Open Modal */}
 
       <Modal
         open={isVisible}
         onCancel={closeModal}
         footer={null}
-        width={600}
+        width={700}
         centered
         closeIcon={<X className="w-5 h-5" />}
         className=""
@@ -53,47 +54,36 @@ const SupportMessageModal: React.FC<SupportMessageModalProps> = ({
       >
         {/* Modal Header with Frame Info */}
 
+        <div className='mb-4 text-center'>
+          <Title level={1} className="!m-0 text-gray-800 inline-block font-bold pb-2">
+            <span className=" font-bold">Get in </span> <span className="text-orange-500 font-bold">Touch</span>
+          </Title>
+          <p className='text-gray-600 text-sm'>Send us Message and our team will get back to you within 24 hours.</p>
+        </div>
 
         <div className="space-y-4">
           {/* Title Section */}
           <div>
             <Text strong className="text-gray-700 text-sm">Title:</Text>
             <div className="mt-1">
-              <Text className="text-gray-900">Request for Technical Support</Text>
+              <Input className="text-gray-900 !py-2" placeholder="Request for Technical Support" />
             </div>
           </div>
 
-          {/* Message Section */}
-          <div>
-            <Text strong className="text-gray-700 text-sm">Message:</Text>
-            <div className="mt-2 space-y-3 text-gray-800 text-sm leading-relaxed">
-              <p>Hello Betopia Support Team,</p>
-              <p>
-                I am reaching out regarding an issue we are facing with the ERP integration module. The system is showing 
-                delays in syncing real-time data between MRM and POS. Could you please investigate this and guide us with 
-                a possible solution?
-              </p>
-              <p>Looking forward to your assistance.</p>
-              <div className="mt-4 space-y-1">
-                <p>Best regards,</p>
-                <p>[Partner Name]</p>
-                <p>[Company Name]</p>
-              </div>
-            </div>
-          </div>
+
 
           {/* Reply Editor Section */}
           <div className="mt-6">
             <div className="border border-gray-300 rounded-lg overflow-hidden">
-                <JoditEditor
-                    ref={editorRef}
-                    value={replyContent}
-                    config={{
-                    readonly: false,
-                    height: 300,
-                    }}
-                    onBlur={(newContent: string) => setReplyContent(newContent)}
-                />
+              <JoditEditor
+                ref={editorRef}
+                value={replyContent}
+                config={{
+                  readonly: false,
+                  height: 300,
+                }}
+                onBlur={(newContent: string) => setReplyContent(newContent)}
+              />
             </div>
           </div>
 
@@ -108,7 +98,7 @@ const SupportMessageModal: React.FC<SupportMessageModalProps> = ({
             >
               Delete
             </Button>
-            
+
             <Button
               type="primary"
               onClick={handleSendMessage}
