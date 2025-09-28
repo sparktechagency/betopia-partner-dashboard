@@ -1,7 +1,7 @@
 import { LiaThListSolid } from 'react-icons/lia';
 import { TSidebarItem } from './generateSidebarItems';
 import { LuClipboardList } from 'react-icons/lu';
-import { TbBook } from 'react-icons/tb';
+import { TbBook, TbMessageCircleUser } from 'react-icons/tb';
 import { FaRegUserCircle, FaUsers } from 'react-icons/fa';
 import { PiUserList } from 'react-icons/pi';
 
@@ -40,7 +40,7 @@ const sidebarItems: TSidebarItem[] = [
         key: 'Support',
         label: 'Support',
         path: 'support',
-        icon: <FaUsers  size={24} />,
+        icon: <TbMessageCircleUser   size={24} />,
     }
 ];
 
