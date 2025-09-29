@@ -7,7 +7,7 @@ export default function DashboardHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4 mb-3" style={{ boxShadow: '0px 4px 4px 0px #00000029' }}>
+    <div className="bg-white border-b rounded-md border-gray-200 px-4 sm:px-6 py-4 mb-3" style={{ boxShadow: '0px 4px 4px 0px #00000029' }}>
       <div className="flex items-center justify-between gap-4">
         {/* Left section - Greeting */}
         <div>

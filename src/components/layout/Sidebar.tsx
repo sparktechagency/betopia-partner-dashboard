@@ -9,6 +9,7 @@ const { Sider } = Layout;
 const Sidebar = () => {
     const location = useLocation();
     const [openKeys, setOpenKeys] = useState<string[]>([]);
+    const [collapsed, setCollapsed] = useState(false);
 
     const handleOpenChange = (keys: string[]) => {
         setOpenKeys(keys);
@@ -60,7 +61,9 @@ const Sidebar = () => {
                 theme="light"
                 breakpoint="lg"
                 collapsedWidth="0"
-
+                onCollapse={(collapsed) => {
+                    setCollapsed(collapsed);
+                }}
             >
                 {/* logo of the website */}
                 <Link to="/">
@@ -82,33 +85,36 @@ const Sidebar = () => {
                     items={sidebarItemsGenerator(sidebarItems)}
                 />
 
-                <div className="p-4 w-full space-y-2 absolute bottom-0 right-0">
-                    {/* Settings Button */}
-                    <button
-                        onClick={() => {
-                            // your settings logic here
-                            console.log("Settings clicked");
-                        }}
-                        className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 
+                {
+                    !collapsed && <div className="p-4 w-full space-y-2 absolute bottom-0 right-0">
+                        {/* Settings Button */}
+                        <button
+                            onClick={() => {
+                                // your settings logic here
+                                console.log("Settings clicked");
+                            }}
+                            className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 
                           hover:bg-gray-100 rounded-md transition"
-                    >
-                        <Settings size={20} />
-                        <span>Settings</span>
-                    </button>
+                        >
+                            <Settings size={20} />
+                            <span>Settings</span>
+                        </button>
 
-                    {/* Logout Button */}
-                    <button
-                        onClick={() => {
-                            // your logout logic here
-                            console.log("Logout clicked");
-                        }}
-                        className="w-full flex items-center gap-3 px-4 py-3 text-white 
+                        {/* Logout Button */}
+                        <button
+                            onClick={() => {
+                                // your logout logic here
+                                console.log("Logout clicked");
+                            }}
+                            className="w-full flex items-center gap-3 px-4 py-3 text-white 
                           bg-red-500 hover:bg-red-600 rounded-md transition"
-                    >
-                        <LogOut size={20} />
-                        <span>Log Out</span>
-                    </button>
-                </div>
+                        >
+                            <LogOut size={20} />
+                            <span>Log Out</span>
+                        </button>
+                    </div>
+                }
+
             </Sider>
         </ConfigProvider>
     );
